@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="toDoList">
+
+<head>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Angular Json Server</title>
+        <!-- Bootstrap -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="styles/mystyles.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="container" ng-controller="listCtrl">
+
+        <div class="row" ng-hide="showError">
+            <div class=" col-md-6 alert alert-danger-alt alert-dismissable">
+                <span class="glyphicon glyphicon-certificate"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    ×</button><strong>Sorry!</strong> Your request was unsuccessful 
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="todolist not-done">
+                 <h3>Add to your list</h3>
+                    <form name="listForm">
+                        <input type="text" class="form-control" ng-model="newitem"placeholder="Add to your list" required>
+                        <button id="checkAll" class="btn btn-success" ng-click="addNew(newitem, nxtListId)" ng-disabled="listForm.$invalid">submit</button>
+                    </form>
+
+                </div>
+            </div>            
+        </div>
+
+        <h3>All lists</h3>
+
+        <div ng-repeat="toDoList in toDoLists">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default panel-body">
+                        <div  class="col-md-6" ng-hide="isShowing(toDoList.id)">{{toDoList.name}}</div>
+
+                        <input type="text" class="form-control col-md-6" ng-model="toDoList.name" ng-show="isShowing(toDoList.id)">
+                        <button  type="button" class="btn btn-primary col-md-2" id="editButton" ng-show="isShowing(toDoList.id)" ng-click="updateList(toDoList.name, toDoList.id)">done</button>
+
+                        <div class="col-md-2 glyphicon glyphicon-pencil" ng-click="showEdit(toDoList.id);" ng-hide="isShowing(toDoList.id)" ></div>
+                        <div class="col-md-2 glyphicon glyphicon-trash" ng-click="deleteList(toDoList.id);" ng-hide="isShowing(toDoList.id)" ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <script src="../bower_components/jquery/jquery.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/listController.js"></script>
+    <script src="scripts/services/listFactory.js"></script>
+</body>
+
+</html>
