@@ -1,7 +1,7 @@
 app.factory('listFactory', ['$http', function($http) {
 
     var listFactory ={};
-    var urlBase = "http://localhost:3000/lists";
+    var urlBase = "http://localhost:3000/lists/";
 
 
     listFactory.insertList = function (value, id) {
@@ -27,4 +27,4 @@ app.factory('listFactory', ['$http', function($http) {
 
     return listFactory;
 
-	}]);
+}]);
