@@ -6,17 +6,17 @@ app.controller('listCtrl',['$scope','listFactory', function($scope, listFactory)
    var getAll = function(){
     listFactory.selectList().then(function successCallback(response) {
       $scope.toDoLists = response.data;
-      if($scope.toDoLists){
-                //get maximum value from object and increase by 1
-                $scope.nxtListId = Number(Math.max.apply(Math,$scope.toDoLists .map(function(o){return o.id;}))) + Number(1);
-              }else{
-            //if object is empty, id of new added item should be 0
-            $scope.nxtListId = 0;
-          }
+        if($scope.toDoLists){
+          //get maximum value from object and increase by 1
+          $scope.nxtListId = Number(Math.max.apply(Math,$scope.toDoLists .map(function(o){return o.id;}))) + Number(1);
+        }else{
+          //if object is empty, id of new added item should be 0
+          $scope.nxtListId = 0;
+        }
 
-        },function errorCallback(response) {
+      },function errorCallback(response) {
          $scope.showError =false;
-       });
+      });
   };
 
 // get all list on page load
