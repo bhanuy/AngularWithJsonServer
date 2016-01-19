@@ -1,9 +1,7 @@
 {
   "name": "AngularJsonServer",
-  "homepage": "https://github.com/bhanuy/Angular-SimpleToDoApp.git",
-  "authors": [
-    "Bhanu Pratap Yadav <bhanu.yadav022@gmail.com>"
-  ],
+  "homepage": "https://github.com/bhanuy",
+  "authors": [],
   "description": "A simple todo list app  with angular and  json-server",
   "main": "index.html",
   "moduleType": [],
