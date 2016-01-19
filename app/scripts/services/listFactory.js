@@ -15,13 +15,13 @@ app.factory('listFactory', ['$http', function($http) {
 
     listFactory.updateList = function (value, id) {
         var data ={name:value};
-        return $http.put('http://localhost:3000/lists/'+id, data);
+        return $http.put(urlBase+id, data);
     };
 
 
      listFactory.deleteList = function (id) {
 
-        return $http.delete('http://localhost:3000/lists/'+id);
+        return $http.delete(urlBase+id);
     };
 
 
