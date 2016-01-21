@@ -21,15 +21,7 @@
 
 <body>
     <div class="container" ng-controller="listCtrl">
-
-        <div class="row" ng-hide="showError">
-            <div class=" col-md-6 alert alert-danger-alt alert-dismissable">
-                <span class="glyphicon glyphicon-certificate"></span>
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                    ×</button><strong>Sorry!</strong> Your request was unsuccessful 
-            </div>
-        </div>
-
+        {{businessInfo}}
         <div class="row">
             <div class="col-md-6">
                 <div class="todolist not-done">

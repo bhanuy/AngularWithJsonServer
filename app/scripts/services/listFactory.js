@@ -10,7 +10,7 @@ app.factory('listFactory', ['$http', function($http) {
     };
 
     listFactory.selectList = function () {
-        return $http.get(urlBase);
+        return $http.get('http://avoindata.prh.fi:80/bis/v1/2385361-2');
     };
 
     listFactory.updateList = function (value, id) {
